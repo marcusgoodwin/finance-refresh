@@ -8,7 +8,7 @@ const Register = () => {
             Name
           </label>
           <input
-            className='w-full p-2 border border-gray-400 rounded-lg'
+            className='w-full p-2 text-black border border-gray-400 rounded-lg'
             type='text'
             id='name'
             name='name'
@@ -20,7 +20,7 @@ const Register = () => {
             Email
           </label>
           <input
-            className='w-full p-2 border border-gray-400 rounded-lg'
+            className='w-full p-2 text-black border border-gray-400 rounded-lg'
             type='email'
             id='email'
             name='email'
@@ -32,7 +32,7 @@ const Register = () => {
             Password
           </label>
           <input
-            className='w-full p-2 border border-gray-400 rounded-lg'
+            className='w-full p-2 text-black border border-gray-400 rounded-lg'
             type='password'
             id='password'
             name='password'

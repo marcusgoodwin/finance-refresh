@@ -7,7 +7,7 @@ const Login = () => {
           Email
         </label>
         <input
-          className='w-full p-2 border border-gray-400 rounded-lg'
+          className='w-full p-2 text-black border border-gray-400 rounded-lg'
           type='email'
           id='login-email'
           name='login-email'
@@ -19,7 +19,7 @@ const Login = () => {
           Password
         </label>
         <input
-          className='w-full p-2 border border-gray-400 rounded-lg'
+          className='w-full p-2 text-black border border-gray-400 rounded-lg'
           type='password'
           id='login-password'
           name='login-password'
