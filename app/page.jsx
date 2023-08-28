@@ -4,6 +4,8 @@ import Login from './login/page'
 import Register from './register/page'
 import AboutUs from './components/aboutUs'
 
+// import marcus from './marcus/page'
+
 export default function Home() {
   return (
     <main className="flex items-center justify-between min-h-screen p-5">
@@ -12,6 +14,7 @@ export default function Home() {
         <Register />
       </div>
       {/* <AboutUs /> */}
+      {/* <marcus /> */}
     </main>
   )
 }
