@@ -26,22 +26,23 @@ const Input = () => {
 
       <label htmlFor="category" className='mt-3 text-white' >Category</label>
       <select id="category" className='text-black focus:outline-none'>
-        <option value="Housing">Housing</option>
-        <option value="Auto">Auto</option>
-        <option value="Food">Food</option>
-        <option value="Utilities">Utilities</option>
-        <option value="Clothing">Clothing</option>
-        <option value="Medical">Medical</option>
-        <option value="Insurance">Insurance</option>
-        <option value="Supplies">Supplies</option>
-        <option value="Debt">Debt</option>
-        <option value="Retirement">Retirement</option>
-        <option value="Education">Education</option>
-        <option value="Savings">Savings</option>
-        <option value="Gifts/Donations">Gifts/Donations</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Other">Other</option>
-      </select>
+       <form className="flex flex-col items-center gap-2 mt-4">
+          <option placeholder="">Select a category</option>
+          <option value="auto">Auto</option>
+          <option value="clothing">Clothing</option>
+          <option value="debt">Debt</option>
+          <option value="education">Education</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="food">Food</option>
+          <option value="gifts/donation">Gifts/Donation</option>
+          <option value="housing">Housing</option>
+          <option value="insurance">Insurance</option>
+          <option value="medical">Medical</option>
+          <option value="retirement">Retirement</option>
+          <option value="savings">Savings</option>
+          <option value="supplies">Supplies</option>
+          <option value="other">Other</option>
+        </select>
 
   
       <br />
@@ -64,8 +65,6 @@ const Input = () => {
           <th> Category </th>
         </tr>
       </table>
-    </div>
-  );
-};
+
 
 export default Input;
