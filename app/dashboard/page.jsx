@@ -3,20 +3,29 @@ import React from 'react';
 const Input = () => {
   return (
     <div className="flex flex-col items-center justify-center text-white" id="content">
+
+<h1 class="pb-8 text-4xl font-bold text-center pt-24"><span id="month"></span> Month Budget</h1>
+      <h2 id="big_number" class="pb-8 text-4xl font-bold text-center">$2500.00</h2>
+      
       <label htmlFor="purchase_date">Purchase Date</label>
-      <input type="date" name="purchase_date" id="purchase_date" className='text-black'/>
+      <input type="date" name="purchase_date" id="purchase_date" className='text-black focus:outline-none'/>
 
-      <label htmlFor="price" className='text-white'>Price</label>
-      <input type="number" name="price" id="price" step=".01" className='text-black' placeholder='$0.00' />
+      <label htmlFor="price" className='mt-2 text-white'>Price</label>
+      <div className='flex align-middle bg-white'>
+        <p className='text-black'>$</p>
+ 
+      <input type="number" name="price" id="price" step=".01" className='text-black focus:outline-none' placeholder='0.00' />
+      </div>
 
-      <label htmlFor="description" className='text-white'>Description</label>
-      <input type="text" name="description" id="description" className='text-black' placeholder='Description' />
+      
+      <label htmlFor="description" className='mt-3 text-white'>Description</label>
+      <input type="text" name="description" id="description" className='text-black focus:outline-none' placeholder='Description' />
 
-      <label htmlFor="merchant" className='text-white'>Merchant</label>
-      <input type="text" name="merchant" id="merchant" className='text-black' placeholder='Merchant'/>
+      <label htmlFor="merchant" className='mt-3 text-white'>Merchant</label>
+      <input type="text" name="merchant" id="merchant" className='text-black focus:outline-none' placeholder='Merchant'/>
 
-      <label htmlFor="category" className='text-white' >Category</label>
-      <select id="category" className='text-black'>
+      <label htmlFor="category" className='mt-3 text-white' >Category</label>
+      <select id="category" className='text-black focus:outline-none'>
         <option value="Housing">Housing</option>
         <option value="Auto">Auto</option>
         <option value="Food">Food</option>
@@ -47,12 +56,12 @@ const Input = () => {
       />
 
       <table id="transactions_table" className="mt-8 mb-8 text-white">
-        <tr className="flex text-2xl font-bold text-center text-white">
-          <th className="mx-4"> Purchase Date </th>
-          <th className="mx-4"> Price </th>
-          <th className="mx-4"> Description </th>
-          <th className="mx-4"> Merchant </th>
-          <th className="mx-4"> Category </th>
+        <tr className="flex gap-4 text-2xl font-bold text-center text-white">
+          <th> Purchase Date </th>
+          <th> Price </th>
+          <th> Description </th>
+          <th> Merchant </th>
+          <th> Category </th>
         </tr>
       </table>
     </div>
