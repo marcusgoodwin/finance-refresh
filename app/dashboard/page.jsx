@@ -1,11 +1,10 @@
 "use client";
-import { useState } from "react";
+import {useState} from "react";
 
 // This is for the dummy data that shows in the table
-import jsonData from '../data.json';
+import jsonData from "../data.json";
 
 const Input = () => {
-
   // This is to track the state of the h2 on line 54. Balance is the default value which is hard coded to display($2500) and setBalance is the function that will update the value of balance when the user submits a purchase.
   const [balance, setBalance] = useState(2500);
 
@@ -29,16 +28,22 @@ const Input = () => {
     });
   };
 
-  
   const handleSubmit = (event) => {
     // prevent default behavior on browsers
     event.preventDefault();
 
-    // This handle submit function is calling the setBalance function and getting the default value of balance($2500) and subtracting it from the price the user puts in. So EX: $2500 - $500. Then whatever the new balance would be ($2000) based on the example is set as balance and then updated to show on the page. 
+    // This handle submit function is calling the setBalance function and getting the default value of balance($2500) and subtracting it from the price the user puts in. So EX: $2500 - $500. Then whatever the new balance would be ($2000) based on the example is set as balance and then updated to show on the page.
     setBalance(balance - formData.price);
-    
+
     // The setFormData function is resetting the values of the input tags and select tag to empty strings and 0 for price state after the user clicks the submit button.
-    setFormData({...formData, purchaseDate: "", price: 0, description: "", merchant: "", category: ""});
+    setFormData({
+      ...formData,
+      purchaseDate: "",
+      price: 0,
+      description: "",
+      merchant: "",
+      category: "",
+    });
   };
 
   // This is setting the state of purchase data with the dummy data I made from the data.json file.
@@ -58,44 +63,90 @@ const Input = () => {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center text-white" id="content">
-      <h1 className="pt-24 pb-8 text-4xl font-bold text-center"><span id="month"></span> Month Budget</h1>
-      <h2 id="big_number" className="pb-8 text-4xl font-bold text-center">$2500.00</h2>
+    <div className='flex flex-col items-center justify-center text-white' id='content'>
+      <h1 className='pt-24 pb-8 text-4xl font-bold text-center'>
+        <span id='month'></span> Month Budget
+      </h1>
+      <h2 id='big_number' className='pb-8 text-4xl font-bold text-center'>
+        ${balance}
+      </h2>
 
-      <label htmlFor="purchase_date">Purchase Date</label>
-      <input type="date" name="purchase_date" id="purchase_date" className="text-black focus:outline-none" />
+      <label htmlFor='purchase_date'>Purchase Date</label>
+      <input
+        type='date'
+        name='purchase_date'
+        id='purchase_date'
+        className='text-black focus:outline-none'
+      />
 
-      <label htmlFor="price" className="mt-2 text-white">Price</label>
-      <div className="flex align-middle bg-white">
-        <p className="text-black">$</p>
-        <input type="number" name="price" id="price" step=".01" className="text-black focus:outline-none" placeholder="0.00" />
+      <label htmlFor='price' className='mt-2 text-white'>
+        Price
+      </label>
+      <div className='flex align-middle bg-white'>
+        <p className='text-black'>$</p>
+        <input
+          type='number'
+          name='price'
+          id='price'
+          step='.01'
+          value={formData.price}
+          onChange={handleChange}
+          placeholder='0.00'
+          className='text-black focus:outline-none'
+        />
       </div>
 
-      <label htmlFor="description" className="mt-3 text-white">Description</label>
-      <input type="text" name="description" id="description" className="text-black focus:outline-none" placeholder="Description" />
+      <label htmlFor='description' className='mt-3 text-white'>
+        Description
+      </label>
+      <input
+        type='text'
+        name='description'
+        id='description'
+        value={formData.description}
+        onChange={handleChange}
+        placeholder='Description'
+        className='text-black focus:outline-none'
+      />
 
-      <label htmlFor="merchant" className="mt-3 text-white">Merchant</label>
-      <input type="text" name="merchant" id="merchant" className="text-black focus:outline-none" placeholder="Merchant" />
+      <label htmlFor='merchant' className='mt-3 text-white'>
+        Merchant
+      </label>
+      <input
+        type='text'
+        name='merchant'
+        id='merchant'
+        value={formData.merchant}
+        onChange={handleChange}
+        className='text-black focus:outline-none'
+        placeholder='Merchant'
+      />
 
-      <label htmlFor="category" className="mt-3 text-white">Category</label>
-      <select id="category" className="text-black focus:outline-none">
-  <option value="">Select a category</option>
-  <option value="auto">Auto</option>
-  <option value="clothing">Clothing</option>
-  <option value="debt">Debt</option>
-  <option value="education">Education</option>
-  <option value="entertainment">Entertainment</option>
-  <option value="food">Food</option>
-  <option value="gifts/donation">Gifts/Donation</option>
-  <option value="housing">Housing</option>
-  <option value="insurance">Insurance</option>
-  <option value="medical">Medical</option>
-  <option value="retirement">Retirement</option>
-  <option value="savings">Savings</option>
-  <option value="supplies">Supplies</option>
-  <option value="other">Other</option>
-</select>
-
+      <label htmlFor='category' className='mt-3 text-white'>
+        Category
+      </label>
+      <select
+        id='category'
+        value={formData.category}
+        onChange={handleChange}
+        className='text-black focus:outline-none'
+      >
+        <option value=''>Select a category</option>
+        <option value='auto'>Auto</option>
+        <option value='clothing'>Clothing</option>
+        <option value='debt'>Debt</option>
+        <option value='education'>Education</option>
+        <option value='entertainment'>Entertainment</option>
+        <option value='food'>Food</option>
+        <option value='gifts/donation'>Gifts/Donation</option>
+        <option value='housing'>Housing</option>
+        <option value='insurance'>Insurance</option>
+        <option value='medical'>Medical</option>
+        <option value='retirement'>Retirement</option>
+        <option value='savings'>Savings</option>
+        <option value='supplies'>Supplies</option>
+        <option value='other'>Other</option>
+      </select>
 
       <br />
 
