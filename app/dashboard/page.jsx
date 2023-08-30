@@ -1,9 +1,15 @@
 "use client";
 import { useState } from "react";
+
+// This is for the dummy data that shows in the table
 import jsonData from '../data.json';
 
 const Input = () => {
+
+  // This is to track the state of the h2 on line 54. Balance is the default value which is hard coded to display($2500) and setBalance is the function that will update the value of balance when the user submits a purchase.
   const [balance, setBalance] = useState(2500);
+
+  // This is the data for all the input tags and select tag. The default values are empty strings and 0 for price. The setFormData is the function that will update the values of the input tags and select tag when the user types in the input tags and select tag.
   const [formData, setFormData] = useState([
     {
       purchaseDate: "",
@@ -14,6 +20,7 @@ const Input = () => {
     },
   ]);
 
+  // This handle change function will update the values of the input tags and select tag when the user types in the input tags and select tag.
   const handleChange = (event) => {
     const {name, value} = event.target;
     setFormData({
@@ -22,14 +29,22 @@ const Input = () => {
     });
   };
 
+  
   const handleSubmit = (event) => {
+    // prevent default behavior on browsers
     event.preventDefault();
+
+    // This handle submit function is calling the setBalance function and getting the default value of balance($2500) and subtracting it from the price the user puts in. So EX: $2500 - $500. Then whatever the new balance would be ($2000) based on the example is set as balance and then updated to show on the page. 
     setBalance(balance - formData.price);
+    
+    // The setFormData function is resetting the values of the input tags and select tag to empty strings and 0 for price state after the user clicks the submit button.
     setFormData({...formData, purchaseDate: "", price: 0, description: "", merchant: "", category: ""});
   };
 
+  // This is setting the state of purchase data with the dummy data I made from the data.json file.
   const [purchaseData, setPurchaseData] = useState(jsonData);
 
+  // I then map through the dummy data and display it in the table. I also set the key to the index so that each row has a unique key. The purchaseInfo is just a paramater for the map method. All the table Data is then created by making a table row and table data inside with the dummy data. This all get saved to the testData variable and then passed in the tbody on line 165
   const testData = purchaseData.map((purchaseInfo, index) => {
     return (
       <tr key={index}>
