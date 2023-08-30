@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1, 
+    "purchaseDate": "08-15-2923",
+    "price": 50,
+    "description": "cheese", 
+    "merchant": "Moradabad",
+    "category": "Food"
+  }
+]
